@@ -1,0 +1,111 @@
+Experiment run on a RTX4070. The latency is given by llama.cpp verbose mode.
+
+Q: How does Llama 2 perform compared to other open-source models?
+A: 
+Llama 2 models outperform Llama 1 models. Llama 2 70B improves the results on MMLU and BBH by ≈5 and ≈8 points, respectively, compared to Llama 1 65B. 
+Llama 2 7B and 30B models outperform MPT models of the corresponding size on all categories besides code benchmarks. For the Falcon models, Llama 2 7B and 34B outperform Falcon 7B and 40B models on all categories of benchmarks. 
+Additionally, Llama 2 70B model outperforms all open-source models. Llama 2 70B results are on par or better than PaLM (540B) (Chowdhery et al., 2022) on almost all benchmarks. 
+There is still a large gap in performance between Llama 2 70B and GPT-4 and PaLM-2-L.
+Latency: 
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       9.86 ms /   195 runs   (    0.05 ms per token, 19768.86 tokens per second)
+llama_print_timings: prompt eval time =     492.41 ms /   596 tokens (    0.83 ms per token,  1210.36 tokens per second)
+llama_print_timings:        eval time =    4036.77 ms /   194 runs   (   20.81 ms per token,    48.06 tokens per second)
+llama_print_timings:       total time =    4717.77 ms /   790 tokens
+
+Q: What are the key architectural differences between Llama 2 and the original Llama model
+A: 
+The primary architectural differences between Llama 2 and the original Llama model include increased context length and grouped-query attention (GQA). 
+These differences are detailed in Appendix Section A.2.1 with ablation experiments to demonstrate their importance.
+Latency: 
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       2.48 ms /    49 runs   (    0.05 ms per token, 19758.06 tokens per second)
+llama_print_timings: prompt eval time =     494.21 ms /   715 tokens (    0.69 ms per token,  1446.74 tokens per second)
+llama_print_timings:        eval time =     989.22 ms /    48 runs   (   20.61 ms per token,    48.52 tokens per second)
+llama_print_timings:       total time =    1525.09 ms /   763 tokens
+
+Q: How do the authors evaluate the reliability, safety, and ethical considerations of Llama 2?
+A: 
+The authors evaluate the reliability, safety, and ethical considerations of Llama 2 through human evaluation, specifically a safety human evaluation, which involves human raters judging model generations for safety violations across ~2,000 adversarial prompts. 
+They also provide a responsible use guide and code examples to facilitate the safe deployment of Llama 2 and Llama 2-Chat. 
+Additionally, they discuss the limitations and ethical considerations of their work, including the potential risks with use, and emphasize the importance of testing and tuning the model for specific applications. 
+They also provide a responsible release strategy, which includes releasing the models to the general public for research and commercial use, while also acknowledging the potential risks and limitations of the technology.
+Latency:
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       7.43 ms /   144 runs   (    0.05 ms per token, 19388.72 tokens per second)
+llama_print_timings: prompt eval time =     476.17 ms /   859 tokens (    0.55 ms per token,  1803.99 tokens per second)
+llama_print_timings:        eval time =    2931.07 ms /   143 runs   (   20.50 ms per token,    48.79 tokens per second)
+llama_print_timings:       total time =    3542.65 ms /  1002 tokens
+
+Q: What techniques were used to improve the efficiency and performance of Llama 2 compared to the original?
+A:
+The primary architectural differences from Llama 1 include increased context length and grouped-query attention (GQA). 
+We detail in Appendix Section A.2.1 each of these differences with ablation experiments to demonstrate their importance. 
+Additionally, the paper mentions that the Llama 2 models outperform Llama 1 models, indicating that these techniques were effective in improving the efficiency and performance of Llama 2. 
+Furthermore, the paper also mentions that the Llama 2 70B model outperforms all open-source models, which suggests that the techniques used to improve Llama 2 were effective in achieving better performance. 
+However, the paper does not provide specific details on the hyperparameters used for training Llama 2, which could be an area for further improvement. 
+Overall, the techniques used to improve Llama 2, such as increased context length and GQA, were effective in improving its efficiency and performance compared to the original. 
+The paper also suggests that further research could be done to improve the hyperparameters used for training Llama 2. 
+Therefore, the answer to the query is that the techniques used to improve Llama 2 were increased context length and GQA. 
+The paper does not provide specific details on the hyperparameters
+Latency:
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =      13.25 ms /   256 runs   (    0.05 ms per token, 19317.84 tokens per second)
+llama_print_timings: prompt eval time =     507.61 ms /   627 tokens (    0.81 ms per token,  1235.20 tokens per second)
+llama_print_timings:        eval time =    5222.97 ms /   255 runs   (   20.48 ms per token,    48.82 tokens per second)
+llama_print_timings:       total time =    5971.90 ms /   882 tokens
+
+Q: What are the limitations of the current Llama 2 model, and what future research directions are proposed to address them?
+A: 
+According to the text, the limitations of human evaluations of the Llama 2 model include:
+    1. The prompt set of 4k prompts may not cover real-world usage of the models, which will likely cover a significantly larger number of use cases.
+    2. The diversity of the prompts could be another factor in the results, as the prompt set does not include any coding- or reasoning-related prompts.
+    3. The evaluation only assesses the final generation of a multi-turn conversation, and a more interesting evaluation could be to ask the models to complete a task and rate the overall experience with the model over multiple turns.
+    4. Human evaluation for generative models is inherently subjective and noisy, and evaluation on a different set of prompts or with different instructions could result in different results.
+Future research directions proposed to address these limitations include:
+    1. Developing a more comprehensive and diverse set of prompts to cover real-world usage of the models.
+    2. Incorporating coding- or reasoning-related prompts to assess the model's capabilities in these areas.
+    3. Evaluating the model's performance over multiple turns and assessing its ability to complete tasks.
+    4. Developing more robust and objective evaluation methods for generative models.
+Latency:
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =      12.37 ms /   240 runs   (    0.05 ms per token, 19397.07 tokens per second)
+llama_print_timings: prompt eval time =     471.31 ms /   587 tokens (    0.80 ms per token,  1245.45 tokens per second)
+llama_print_timings:        eval time =    4919.49 ms /   239 runs   (   20.58 ms per token,    48.58 tokens per second)
+llama_print_timings:       total time =    5610.45 ms /   826 tokens
+
+Q: What is the scale of the Llama 2 models?
+A:
+7B, 13B, and 70B. The models come in a range of parameter sizes.
+Latency:
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       1.16 ms /    23 runs   (    0.05 ms per token, 19810.51 tokens per second)
+llama_print_timings: prompt eval time =     550.24 ms /   930 tokens (    0.59 ms per token,  1690.18 tokens per second)
+llama_print_timings:        eval time =     451.96 ms /    22 runs   (   20.54 ms per token,    48.68 tokens per second)
+llama_print_timings:       total time =    1021.82 ms /   952 tokens
+
+Q: What is the carbon footprint of training this new model?
+A:
+539 tCO2eq. The carbon footprint was offset by Meta’s sustainability program.
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       0.99 ms /    18 runs   (    0.05 ms per token, 18200.20 tokens per second)
+llama_print_timings: prompt eval time =     498.54 ms /   899 tokens (    0.55 ms per token,  1803.28 tokens per second)
+llama_print_timings:        eval time =     349.00 ms /    17 runs   (   20.53 ms per token,    48.71 tokens per second)
+llama_print_timings:       total time =     862.92 ms /   916 tokens
+
+Q: What are the strengths and weaknesses of Llama 2 relative to other state-of-the-art models?
+A:
+According to the text, the strengths of Llama 2 are:
+    - It outperforms Llama 1 models on popular aggregated benchmarks such as MMLU, Big Bench Hard, and AGI Eval.
+    - It outperforms MPT models of the same size on all categories of benchmarks except code benchmarks.
+    - It outperforms Falcon models of the same size on all categories of benchmarks.
+    - It is close to GPT-3.5 on MMLU and GSM8K, and on par or better than PaLM (540B) on almost all benchmarks.
+The weaknesses of Llama 2 are:
+    -There is a significant gap in performance between Llama 2 70B and GPT-4 and PaLM-2-L on coding benchmarks.
+    -There is still a large gap in performance between Llama 2 70B and GPT-4 and PaLM-2-L on some benchmarks.
+Latency:
+llama_print_timings:        load time =     456.28 ms
+llama_print_timings:      sample time =       9.85 ms /   191 runs   (    0.05 ms per token, 19400.71 tokens per second)
+llama_print_timings: prompt eval time =     615.81 ms /   938 tokens (    0.66 ms per token,  1523.20 tokens per second)
+llama_print_timings:        eval time =    3899.30 ms /   190 runs   (   20.52 ms per token,    48.73 tokens per second)
+llama_print_timings:       total time =    4695.18 ms /  1128 tokens
